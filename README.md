@@ -70,8 +70,7 @@ This project uses machine learning to classify images as either cats or dogs. It
 
 Here’s an example of the web interface:
 
-![Screenshot of Web App](https://github.com/kp-algo/Kartik_114123035_dBlasts_MLOps/raw/c3e7d4b18591144a11ac648b24b154ec2af584a4/images/Screenshot%202024-12-25%20213243.png
-)
+![Screenshot of Web App](https://github.com/kp-algo/Kartik_114123035_dBlasts_MLOps/blob/main/images/Screenshot%202024-12-25%20213243.png?raw=true)
 
 ---
 
