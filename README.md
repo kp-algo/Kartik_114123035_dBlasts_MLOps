@@ -23,7 +23,7 @@ This project uses machine learning to classify images as either cats or dogs. It
 ## Installation
 
 ### Prerequisites
-1. Python 3.7 or later installed on your system.
+1. Python 3.12.4 or later installed on your system.
 2. Required libraries:
    - Flask
    - TensorFlow
