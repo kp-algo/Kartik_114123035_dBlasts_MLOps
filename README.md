@@ -63,7 +63,7 @@ This project uses machine learning to classify images as either cats or dogs. It
 1. **Model**: The `model.h5` file is a pre-trained deep learning model that predicts if an image is of a cat or dog. <br>
 This model uses a Convolutional Neural Network (CNN) model built using the Keras Sequential API. Below is the screenshot of the summary of the model architecture:
 
-![Screenshot of the summary of Model Architecture]("https://github.com/kp-algo/Kartik_114123035_dBlasts_MLOps/blob/main/images/image.png?raw=true")
+![Screenshot of the summary of Model Architecture](https://github.com/kp-algo/Kartik_114123035_dBlasts_MLOps/blob/main/images/image.png?raw=true)
 
 2. **Web App**: The `app.py` file serves as the backend, while the `templates/` folder contains the frontend files for the user interface.
 
