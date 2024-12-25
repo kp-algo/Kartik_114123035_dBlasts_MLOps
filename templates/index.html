@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat & Dog Classifier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-VkrmqZlNW/Uti37ToxACVdZmLNzSbWnf+LO52OasA1eWoVz6BFF34v2Q/5Odq+g7" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            font-family: 'Arial', sans-serif;
+        }
+        .main-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .main-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .main-header h2 {
+            color: #343a40;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #6c63ff;
+            border-color: #6c63ff;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #4e44cc;
+            border-color: #4e44cc;
+        }
+        .result-container {
+            margin-top: 30px;
+            text-align: center;
+            padding: 10px;
+            background: #f1f3f5;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6c63ff;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #868e96;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-container">
+            <div class="main-header">
+                <h2>Cat & Dog Image Classifier</h2>
+                <p class="text-muted">Upload an image to classify it as a Cat or a Dog</p>
+            </div>
+
+            <!-- Form -->
+            <form id="uploadForm" method="POST" enctype="multipart/form-data" action="/predict">
+                <div class="mb-3">
+                    <label for="imageUpload" class="form-label">Upload an image:</label>
+                    <input class="form-control" type="file" id="imageUpload" name="image" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Classify Image</button>
+            </form>
+
+            <!-- Result Section -->
+            <div class="result-container d-none" id="resultContainer">
+                <p class="result-text" id="resultText"></p>
+            </div>
+        </div>
+
+        <footer>
+            Powered by TensorFlow & Flask | Designed by <strong>Kartik</strong>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+I6ZT8W7Ll9Z9l+8nbTov4+1pBk3g" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent page reload
+
+            const formData = new FormData();
+            const file = document.getElementById('imageUpload').files[0];
+            formData.append('image', file);
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.prediction) {
+                        displayResult(data.prediction);
+                    } else {
+                        alert("Error: " + data.error);
+                    }
+                } else {
+                    alert("Server error. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        });
+
+        function displayResult(prediction) {
+            const resultContainer = document.getElementById('resultContainer');
+            const resultText = document.getElementById('resultText');
+            resultText.textContent = `The image is classified as: ${prediction}`;
+            resultContainer.classList.remove('d-none'); // Show the result container
+        }
+    </script>
+</body>
+</html>
