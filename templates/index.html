@@ -6,72 +6,7 @@
     <title>Cat & Dog Classifier</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            font-family: 'Arial', sans-serif;
-        }
-        .main-container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .main-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .main-header h2 {
-            color: #343a40;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .btn-primary {
-            background-color: #6c63ff;
-            border-color: #6c63ff;
-            width: 100%;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .btn-primary:hover {
-            background-color: #4e44cc;
-            border-color: #4e44cc;
-        }
-        .result-container {
-            margin-top: 30px;
-            text-align: center;
-            padding: 10px;
-            background: #f1f3f5;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-        .result-text {
-            font-size: 20px;
-            font-weight: bold;
-            color: #6c63ff;
-        }
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #868e96;
-        }
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-top: 5px;
-        }
-
-        select:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
