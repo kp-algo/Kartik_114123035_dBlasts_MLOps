@@ -7,8 +7,10 @@ This project uses machine learning to classify images as either cats or dogs. It
 ## Project Structure
 
 - **`app.py`**: The main Python file that runs the web application.
-- **`model.h5`**: The pre-trained model used for image classification.
+- **`model.h5`**: A CNN architecture based self customised model for the image classification. 
+- **`kutta_billi.h5`**: A model based on MobileNetV2 for the image classification.
 - **`templates/`**: Contains the **index.html** for the web interface.
+- **`static/`**: Contains the **script.js** and **styles.css**.
 
 ---
 
